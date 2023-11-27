@@ -13,10 +13,7 @@ body {
     font-size: 1.5rem;
 }
 .game {
-    height: 288px;
-    width: 288px;
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
     transform: rotateZ(180deg) scaleX(-1);
 }
 .game img {
@@ -28,8 +25,11 @@ body {
     transform: rotateZ(180deg) scaleX(-1);
 }
 .flags {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 8px;
+}
+.config {
+    background-color: #444;
 }
 button:hover { cursor: pointer; }

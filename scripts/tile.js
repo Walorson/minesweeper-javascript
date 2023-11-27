@@ -1,8 +1,7 @@
 let globalID = 0;
 const tiles = [];
-let availableFlags = MINES_COUNT;
-let pointsToWin = MINES_COUNT;
 let firstMove = false;
+
 class Tile {
     constructor(posX, posY) {
         this.id = globalID;
@@ -31,7 +30,7 @@ class Tile {
     findAdjacentTiles() {
         this.AdjacentTiles = [getID(this.x, this.y+1),getID(this.x+1, this.y+1), getID(this.x+1, this.y),getID(this.x+1, this.y-1),getID(this.x, this.y-1),getID(this.x-1, this.y-1),getID(this.x-1, this.y),getID(this.x-1, this.y+1)];
 
-        this.AdjacentTiles = this.AdjacentTiles.filter(tile => tile >= 0 && tile <= 80);
+        this.AdjacentTiles = this.AdjacentTiles.filter(tile => tile >= 0 && tile <= (MAP.x * MAP.y) - 1);
     }
     reveal(ignoreMines = false) {
         if(this.isFlag) return;
@@ -99,6 +98,6 @@ function revealAll() {
     tiles.forEach(tile => tile.reveal(true));
 }
 function getID(x, y) {
-    if(x < 0 || x > 8 || y < 0 || y > 8) return;
+    if(x < 0 || x > MAP.x-1 || y < 0 || y > MAP.y-1) return;
     return y * MAP.y + x;
 }

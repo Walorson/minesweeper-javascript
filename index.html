@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saper</title>
-    <meta name="author" content="Szymon Gniadek">
+    <title>Minesweeper Javascript</title>
+    <meta name="author" content="Walorson">
 
+    <link rel="icon" href="img/9.png">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="flags"><img src="img/11.png"><span id="flagCounter">10</span></div>
+    <div class="config" id="config">
+        <h1>Minesweeper Javascript</h1>
+        <p>Map Size: <input type="number" value="8" id="config-mapX" min="4" max="12"><input type="number" value="8" id="config-mapY" min="4" max="12"></p>
+        <p>Count of Mines:<input type="range" id="config-countOfMines"><span id="config-minesCounter"></span></p>
+        <input type="button" value="Play" id="config-submit">
+    </div>
+    <div class="flags" id="flags"><img src="img/11.png"><span id="flagCounter">10</span></div>
     <div class="game" id="game"></div>
-    <script src="scripts/globalSettings.js"></script>
     <script src="scripts/better.js"></script>
+    <script src="scripts/config.js"></script>
     <script src="scripts/tile.js"></script>
     <script src="scripts/main.js"></script>
 </body>

@@ -1,8 +1,8 @@
 const game = document.getElementById("game");
-const flagCounter = document.getElementById("flagCounter");
-flagCounter.textContent = MINES_COUNT;
 let randPool = [];
+
 function generateBoard() {
+    game.style.gridTemplateColumns = `repeat(${MAP.x}, 1fr)`;
 
     for(let i=0; i<MAP.y; i++) {
         for(let j=0; j<MAP.x; j++) {
@@ -31,6 +31,6 @@ function endGame(isWin) {
         background.insertButton("Play Again",() => location.reload());
     }
 }
-generateBoard();
+
 
 window.addEventListener("contextmenu",(e) => e.preventDefault());
