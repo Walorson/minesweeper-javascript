@@ -1,10 +1,11 @@
 const flags = document.getElementById("flags");
 const flagCounter = document.getElementById("flagCounter");
 
-var MAP = { x: 12, y: 12 }
+const MAP = { x: 12, y: 12 }
 var MINES_COUNT = 3;
 const MIN_MAP_SIZE = 4;
 const MAX_MAP_SIZE = 12;
+let MAX_MINES_COUNT = 55;
 let availableFlags;
 let pointsToWin;
 
@@ -24,6 +25,13 @@ Object.keys(config).forEach((key, i) =>
         config[key].addEventListener("input", () => {
             if(config[key].value > MAX_MAP_SIZE) config[key].value = MAX_MAP_SIZE;
             if(config[key].value < MIN_MAP_SIZE) config[key].value = MIN_MAP_SIZE;
+			
+			MAP.x = config.mapX.value;
+			MAP.y = config.mapY.value;
+			
+			MAX_MINES_COUNT = (MAP.x * MAP.y) - 9;
+			config.countOfMines.setAttribute("max",MAX_MINES_COUNT);
+			config.minesCounter.textContent = config.countOfMines.value;
         });
     }
 });
@@ -33,8 +41,6 @@ config.countOfMines.addEventListener("input",() => {
 });
 
 config.submit.addEventListener("click",() => {
-    MAP.x = config.mapX.value;
-    MAP.y = config.mapY.value;
     MINES_COUNT = config.countOfMines.value;
 
     config.main.style.display = 'none';
