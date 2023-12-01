@@ -99,5 +99,7 @@ function revealAll() {
 }
 function getID(x, y) {
     if(x < 0 || x > MAP.x-1 || y < 0 || y > MAP.y-1) return;
-    return y * MAP.y + x;
+    //if(y == 0) return y * MAP.y + x;
+    //else return y * MAP.y + (x - (Math.abs(MAP.x - MAP.y)));
+    return y * MAP.x + x;
 }
