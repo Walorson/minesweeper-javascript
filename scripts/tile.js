@@ -16,7 +16,7 @@ class Tile {
     }
     getDiv() { return document.getElementById("tile"+this.id); }
     init() {
-        game.innerHTML += `<img src="img/${this.frontValue}.png" id="tile${this.id}">`;
+        game.innerHTML += `<img src="themes/${theme}/${this.frontValue}.png" id="tile${this.id}">`;
         globalID++;
         this.findAdjacentTiles();
     }
@@ -46,7 +46,7 @@ class Tile {
         }
 
         this.frontValue = 0;
-        this.getDiv().setAttribute("src",`img/${this.value}.png`);
+        this.getDiv().setAttribute("src",`themes/${theme}/${this.value}.png`);
         this.getDiv().oncontextmenu = (e) => e.preventDefault();
 
         if(ignoreMines == true) return;
@@ -73,7 +73,7 @@ class Tile {
         }
         flagCounter.textContent = availableFlags;
 
-        this.getDiv().setAttribute("src",`img/${this.frontValue}.png`);
+        this.getDiv().setAttribute("src",`themes/${theme}/${this.frontValue}.png`);
     }
     setMine() {
         this.value = 9;

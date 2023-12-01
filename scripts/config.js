@@ -1,13 +1,14 @@
 const flags = document.getElementById("flags");
 const flagCounter = document.getElementById("flagCounter");
 
-const MAP = { x: 12, y: 12 }
+const MAP = { x: 8, y: 8 }
 var MINES_COUNT = 3;
 const MIN_MAP_SIZE = 4;
 const MAX_MAP_SIZE = 12;
 let MAX_MINES_COUNT = 55;
 let availableFlags;
 let pointsToWin;
+let theme = "dark";
 
 const config = {
     main: document.getElementById("config"),
@@ -45,6 +46,7 @@ config.submit.addEventListener("click",() => {
 
     config.main.style.display = 'none';
     flags.style.display = 'flex';
+    flags.querySelector("img").setAttribute('src',`themes/${theme}/11.png`);
     flagCounter.textContent = MINES_COUNT;
     availableFlags = MINES_COUNT;
     pointsToWin = MINES_COUNT;

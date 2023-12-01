@@ -7,8 +7,9 @@
     <title>Minesweeper Javascript</title>
     <meta name="author" content="Walorson">
 
-    <link rel="icon" href="img/9.png">
+    <link rel="icon" href="themes/light/9.png">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="input.css">
 </head>
 <body>
     <div class="config" id="config">
@@ -17,7 +18,7 @@
         <p>Count of Mines:<input type="range" id="config-countOfMines" max=55 min=1 value=10><span id="config-minesCounter">10</span></p>
         <input type="button" value="Play" id="config-submit">
     </div>
-    <div class="flags" id="flags"><img src="img/11.png"><span id="flagCounter">10</span></div>
+    <div class="flags" id="flags"><img src="themes/light/11.png" id="flags-img"><span id="flagCounter">10</span></div>
     <div class="game" id="game"></div>
     <script src="scripts/better.js"></script>
     <script src="scripts/config.js"></script>
