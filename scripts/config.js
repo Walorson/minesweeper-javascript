@@ -16,6 +16,7 @@ const config = {
     mapY: document.getElementById("config-mapY"),
     countOfMines: document.getElementById("config-countOfMines"),
     minesCounter: document.getElementById("config-minesCounter"),
+    theme: document.getElementById("config-theme"),
     submit: document.getElementById("config-submit")
 };
 
@@ -50,5 +51,8 @@ config.submit.addEventListener("click",() => {
     flagCounter.textContent = MINES_COUNT;
     availableFlags = MINES_COUNT;
     pointsToWin = MINES_COUNT;
+    theme = config.theme.value;
+    document.getElementById("flags-img").setAttribute("src",`themes/${theme}/11.png`)
+
     generateBoard();
 });
