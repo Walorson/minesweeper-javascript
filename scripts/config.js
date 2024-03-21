@@ -10,6 +10,17 @@ let availableFlags;
 let pointsToWin;
 let theme = "dark";
 
+window.addEventListener("load", () => {
+    if(sessionStorage.getItem("mapX") != "null")
+        MAP.x = sessionStorage.getItem("mapX");
+    if(sessionStorage.getItem("mapY") != "null")
+        MAP.y = sessionStorage.getItem("mapY");
+    if(sessionStorage.getItem("minesCount") != "null")
+        MINES_COUNT = sessionStorage.getItem("minesCount");
+    if(sessionStorage.getItem("theme") != "null")
+        theme = sessionStorage.getItem("theme");
+});
+
 const config = {
     main: document.getElementById("config"),
     mapX: document.getElementById("config-mapX"),
@@ -47,12 +58,16 @@ config.submit.addEventListener("click",() => {
 
     config.main.style.display = 'none';
     flags.style.display = 'flex';
-    flags.querySelector("img").setAttribute('src',`themes/${theme}/11.png`);
     flagCounter.textContent = MINES_COUNT;
     availableFlags = MINES_COUNT;
     pointsToWin = MINES_COUNT;
     theme = config.theme.value;
-    document.getElementById("flags-img").setAttribute("src",`themes/${theme}/11.png`)
+    document.getElementById("flags-img").setAttribute("src",`themes/${theme}/11.png`);
+
+    sessionStorage.setItem("mapX", MAP.x);
+    sessionStorage.setItem("mapY", MAP.y);
+    sessionStorage.setItem("minesCount", MINES_COUNT);
+    sessionStorage.setItem("theme", theme);
 
     generateBoard();
 });

@@ -20,9 +20,9 @@ body {
     height: 32px;
     width: 32px;
     display: block;
-    user-select: none;
     -webkit-user-drag: none;
     transform: rotateZ(180deg) scaleX(-1);
+    user-select: none;
 }
 .flags {
     display: none;

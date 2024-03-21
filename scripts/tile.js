@@ -16,7 +16,7 @@ class Tile {
     }
     getDiv() { return document.getElementById("tile"+this.id); }
     init() {
-        game.innerHTML += `<img src="themes/${theme}/${this.frontValue}.png" id="tile${this.id}">`;
+        game.innerHTML += `<img src="themes/${theme}/${this.frontValue}.png" draggable="false" id="tile${this.id}">`;
         globalID++;
         this.findAdjacentTiles();
     }
